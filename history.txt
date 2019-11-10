@@ -1,0 +1,8 @@
+ 2021  swig -Ipicosat-965 -java picosat_java.i 
+ 2027  gcc -fPIC -c picosat_java_wrap.c -I/usr/lib/jvm/java-8-oracle/include 
+ 2028  gcc -fPIC -c picosat_java_wrap.c -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux/
+ 2029  gcc -fPIC -c picosat_java_wrap.c -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux/ -Ipicosat-965
+ 2030  ld -G picosat_java_wrap.o -o libpicosat_java_wrap.so
+ 2050  javac *.java
+ 2068  ld -G picosat_java_wrap.o picosat-965/picosat.o picosat-965/version.o -o libpicosat_java_wrap.so
+ 2069  java -classpath . -Djava.library.path=. PicoSATExample
